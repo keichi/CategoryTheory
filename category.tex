@@ -47,15 +47,17 @@
 \maketitle
 
 \section{はじめに}
-圏論を学ぶことはHaskellの型システムを理解する助けになりうる。
-その対象がHaskellの型であり、射がHaskellの関数である、
-「Haskell圏」というものを考えられる。\url{http://www.haskell.org/haskellwiki/Category_theory}
+この文書はHaskellを勉強している筆者が、寄り道して勉強した圏論について、
+学習した事項をまとめたものです。主な内容は、HaskellWikiのCategory theoryの
+ページ\\\url{http://www.haskell.org/haskellwiki/Category_theory}の翻訳です。
+この文書は、Wikiの内容にHaskellで書いたサンプルコードや、図、用語の解説などを
+多少書き加えたものです。
 
 %-------------------------------------------------------------------------------
 \section{圏}
 
 \subsection{定義}
-ある圏Cは、2つの集合の組からなる:
+ある圏$C$は、2つの集合の組からなる:
 
 \begin{itemize}
     \item $Ob(C)$、$C$の「対象」の集合
