@@ -1,5 +1,3 @@
-#!/bin/sh
-
 .PHONY:	clean all view
 
 TARGET		=	category
