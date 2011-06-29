@@ -2,7 +2,7 @@
 
 TARGET		=	category
 DIAGRAMS	=	diag_functor.pdf diag_nt.pdf diag_nt2.pdf diag_comp.pdf\
-				diag_dom.pdf
+				diag_dom.pdf diag_kleisli.pdf
 RM			=	rm
 
 .SUFFIXES:	.bb .pdf
