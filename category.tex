@@ -1,5 +1,5 @@
 %-------------------------------------------------------------------------------
-%   圏論ノート
+%   Haskellerのための圏論
 %   Keichi
 %   圏論の勉強成果の個人的なまとめ
 %-------------------------------------------------------------------------------
@@ -42,7 +42,7 @@
 %-------------------------------------------------------------------------------
 \begin{document}
 
-\title{圏論ノート}
+\title{Haskellerのための圏論}
 \author{Keichi}
 \maketitle
 
@@ -57,16 +57,17 @@
 \section{圏}
 
 \subsection{定義}
-ある圏$C$は、2つの集合の組からなる:
+ある圏(Category)$C$は、2つの集合の組からなる:
 
 \begin{itemize}
-    \item $Ob(C)$、$C$の「対象」の集合
-    \item $Ar(C)$、$C$の「射」の集合
+    \item $Ob(C)$、$C$の「対象」(Object)の集合
+    \item $Ar(C)$、$C$の「射」(Morphism)の集合
 \end{itemize}
 
-$Ar(C)$に含まれる射fは、$Ob(C)$の要素であるドメイン（もしくはソース）$dom f$と、
-コドメイン（もしくはターゲット）$cod f$を持つ。$f:A \to B$と書けば、
-fのドメインが$A$であり、コドメインが$B$であることを意味する。
+$Ar(C)$に含まれる射fは、$Ob(C)$の要素であるドメイン(Domain)
+(もしくはソース(Source))$dom f$と、コドメイン(Codomain)(もしくはターゲット(Target))
+$cod f$を持つ。$f:A \to B$と書けば、fのドメインが$A$であり、コドメインが
+$B$であることを意味する。
 
 \begin{figure}[htbp]
     \centering
@@ -132,7 +133,7 @@ Haskellの型と関数からなる圏Haskを考えると、
 \section{関手}
 
 \subsection{定義}
-$C$, $D$を圏とすると、関手$F:C \to D$は関数$F_{objects}:Ob(C) \to Ob(D)$
+$C$, $D$を圏とすると、関手(Functor)$F:C \to D$は関数$F_{objects}:Ob(C) \to Ob(D)$
 と関数$F_{arrows}:Ar(C)\to Ar(D)$の組である。前者は対象関数とよばれ、
 後者は射関数とよばれる。
 
@@ -210,7 +211,7 @@ $f\in hom_C(X,Y)$とする。
     \caption{関手$\Phi$と$\Psi$}
 \end{figure}
 
-自然変換$\eta:\Phi\to\Psi$は、$C$の各対象を、
+自然変換(Natural Transoformation)$\eta:\Phi\to\Psi$は、$C$の各対象を、
 以下の条件を満たす$D$の射と対応づける。
 \begin{itemize}
     \item $\forall A\in Ob(C)\to \eta_A\in hom_D(\Phi(A),\Psi(A))$
@@ -227,6 +228,7 @@ $f\in hom_C(X,Y)$とする。
 
 \subsection{Haskellによる例}
 \begin{lstlisting}
+    --この関数はData.Maybeで定義されています。
     maybeToList :: Maybe a -> [a]
     maybeToList Nothing     =   []
     maybeToList (Just a)    =   [a]
@@ -249,7 +251,7 @@ fmapは多相であるため、$\Phi$、$\Psi$両方のファンクタの射部�
 Haskellで一般的に「モナド」と呼ばれているものは実は圏論のモナドとは異なっていって、
 直接的に対応するのは圏論でKleisliトリプルとよばれています。
 
-圏$C$上のKleisliトリプルとは
+圏$C$上のKleisliトリプル(Kleisli-Triple)とは
 \begin{itemize}
     \item 関数$T:Ob(C)\to Ob(C)$
     \item 射$\eta_A:\to T(A)$(各$A\in Ob(C)$)
