@@ -2,7 +2,7 @@
 
 TARGET		=	main
 SOURCES		=	category.tex kleisli.tex main.tex functor.tex introduction.tex\
-				nattrans.tex
+				nattrans.tex kleisli-cat.tex
 DIAGRAMS	=	diag_functor.pdf diag_nt.pdf diag_nt2.pdf diag_comp.pdf\
 				diag_dom.pdf diag_kleisli.pdf
 RM			=	rm
