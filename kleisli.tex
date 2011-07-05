@@ -55,3 +55,12 @@ class Monad t where
     m >>= return        ==  m
     (m >>= f) >>= g     ==  m >>= (\x -> f x >>= g)
 \end{lstlisting}
+
+ちなみにこのモナド則は後述のKleisli圏における関数合成演算子$>=>$を用いれば、
+より直感的に記述することができ、
+\begin{lstlisting}
+    return >=> f    ==  f
+    f >=> return    ==  f
+    (f >=> g) >=> h ==  f >=> (g >=>h)
+\end{lstlisting}
+となる。
